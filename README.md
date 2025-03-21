@@ -50,7 +50,7 @@ Avant de commencer, installez les outils suivants :
    ```
 4. **Générer une paire de clés SSH**
    ```sh
-   ssh-keygen -t rsa -b 4096 -f <votre_repertoire>\id_rsa ""
+   ssh-keygen -t rsa -b 4096 -f <votre_repertoire>TerraformCloud\src\id_rsa ""
    ```
 5. **Visualiser l'infrastructure**
    ```sh
