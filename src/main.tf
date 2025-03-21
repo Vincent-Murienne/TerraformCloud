@@ -216,7 +216,7 @@ resource "azurerm_storage_blob" "vincentm_blob" {
   storage_account_name   = azurerm_storage_account.vincentm_storage.name
   storage_container_name = azurerm_storage_container.vincentm_container.name
   type                   = "Block"
-  source                 = "./example.txt"
+  source                 = "../example.txt"
 }
 
 # Créer un serveur PostgreSQL
