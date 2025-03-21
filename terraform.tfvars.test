@@ -1,0 +1,30 @@
+# Valeurs pour les variables sensibles et personnalisées
+resource_group_name      = "name-resource-group"
+location                 = "eastus"
+environment              = "Dev"
+
+# VM
+vm_name                  = "test-name" 
+vm_size                  = "Standard_B1ls"
+admin_username           = "testadmin"
+ssh_key_path             = "./id_rsa.pub"
+
+# Réseau
+vnet_address_space       = ["10.0.0.0/16"]
+subnet_address_prefix    = ["10.0.1.0/24"]
+
+# Stockage
+storage_account_name     = "teststorageacc"
+storage_account_key      = "<storage_key>"
+storage_container_name   = "testcontainer"
+storage_account_tier     = "Standard"
+storage_replication_type = "LRS"
+
+# PostgreSQL
+postgresql_server_name   = "test-postgresql-server"
+postgresql_sku           = "B_Gen5_1"
+postgresql_storage_mb    = 5120
+postgresql_version       = "11"
+postgresql_db_name       = "testmdb"
+postgresql_admin_username = "<admin_username>"
+postgresql_admin_password = "<mdp>"
