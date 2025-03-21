@@ -13,6 +13,10 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
+# Exclude all ssh keys
+id_rsa
+id_rsa.pub
+
 # Ignore override files as they are usually used for local dev
 override.tf
 override.tf.json
