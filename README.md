@@ -48,6 +48,10 @@ Avant de commencer, installez les outils suivants :
    ```sh
    terraform init
    ```
+4. **Générer une paire de clés SSH**
+   ```sh
+   ssh-keygen -t rsa -b 4096 -f <votre_repertoire>\id_rsa ""
+   ```
 4. **Visualiser l'infrastructure**
    ```sh
    terraform plan
