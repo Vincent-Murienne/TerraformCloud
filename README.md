@@ -52,18 +52,18 @@ Avant de commencer, installez les outils suivants :
    ```sh
    ssh-keygen -t rsa -b 4096 -f <votre_repertoire>\id_rsa ""
    ```
-4. **Visualiser l'infrastructure**
+5. **Visualiser l'infrastructure**
    ```sh
    terraform plan
    ```
-5. **Déployer l'infrastructure**
+6. **Déployer l'infrastructure**
    ```sh
    terraform apply
    ```
-6. **Accéder à l'application**
+7. **Accéder à l'application**
    - IP publique affichée dans les outputs Terraform
    - Accès : `http://<IP_PUBLIQUE>:5000`
-7. **Gérer l'infrastructure**
+8. **Gérer l'infrastructure**
    ```sh
    terraform refresh  # Mise à jour des ressources
    terraform destroy  # Suppression des ressources
