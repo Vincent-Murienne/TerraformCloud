@@ -150,7 +150,7 @@ curl http://<IP_PUBLIQUE>:5000/files
 curl http://<IP_PUBLIQUE>:5000/download/<filename> --output fichier_telecharge.txt
 
 # Upload d'un fichier
-curl -X POST -F "file=@/chemin/vers/fichier.txt" http://<IP_PUBLIQUE>:5000/upload
+curl -X POST -F "file=@<chemin/vers/fichier.txt>" http://<IP_PUBLIQUE>:5000/upload
 
 # Supprimer un fichier
 curl -X DELETE http://<IP_PUBLIQUE>:5000/delete/<filename>
