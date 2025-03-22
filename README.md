@@ -174,7 +174,7 @@ curl -X DELETE http://<IP_PUBLIQUE>:5000/delete/<filename>
 
 ---
 
-## 📌 Récap :
+## 📌 Récap
    - git clone https://github.com/Vincent-Murienne/TerraformCloud
    - az account set --subscription "VOTRE_ID_ABONNEMENT"
    - az login
