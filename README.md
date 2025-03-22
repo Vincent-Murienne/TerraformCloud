@@ -63,14 +63,18 @@ Avant de commencer, installez les outils suivants :
    ```sh
    terraform plan
    ```
-6. **Déployer l'infrastructure**
+6. **Lister les ressources**
+   ```sh
+   terraform state list
+   ```
+7. **Déployer l'infrastructure**
    ```sh
    terraform apply
    ```
-7. **Accéder à l'application**
+8. **Accéder à l'application**
    - IP publique affichée dans les outputs Terraform
    - Accès : `http://<IP_PUBLIQUE>:5000`
-8. **Gérer l'infrastructure**
+9. **Gérer l'infrastructure**
    ```sh
    terraform refresh  # Mise à jour des ressources
    terraform destroy  # Suppression des ressources
