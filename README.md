@@ -19,7 +19,6 @@ Avant de commencer, installez les outils suivants :
 
 ## 📚 Structure du Projet
 ```
-.
 /TERRATORMCLOUD
 ├── screen/
 ├── src/
