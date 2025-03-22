@@ -48,7 +48,7 @@ Avant de commencer, installez les outils suivants :
    ```sh
    terraform init
    ```
-4. **Générer une paire de clés SSH (Pour la config de base, les clés doivent être générées à la racine du projet)**
+4. **Générer une paire de clés SSH** (Pour la config de base, les clés doivent être générées à la racine du projet)
    ```sh
    ssh-keygen -t rsa -b 4096 -f <votre_repertoire>\id_rsa ""
    ```
