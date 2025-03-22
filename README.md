@@ -174,6 +174,22 @@ curl -X DELETE http://<IP_PUBLIQUE>:5000/delete/<filename>
 
 ---
 
+## Récap :
+   - git clone https://github.com/Vincent-Murienne/TerraformCloud
+   - az account set --subscription "VOTRE_ID_ABONNEMENT"
+   - az login
+   - ssh-keygen -t rsa -b 4096 -f id_rsa ""
+   - cd terraform
+   - terraform init
+   - terraform apply
+   - (attendre 'azurerm_virtual_machine.vincentm_vm: Still creating... [...s elapsed]')
+   - renommer le fichier 'terraform.tfvars.test -> terraform.tfvars'
+   - se rendre sur le portail Azure et récupérer les informations générés dans le ressource groupe
+   - changer les valeurs des variables (account_key, admin_username, admin_password, etc) par les nouvelles données générées
+   - Puis de nouveau exécuter : terraform apply dans le dossier terraform
+   - En parallèle, ouvrir un nouveau terminal, se connecter à la vm puis à la bdd et créer les tables 'test_table' et 'file_metadata'
+   - Puis tester les routes via curl cmd ou Postman
+      
 ## 🎨 Conclusion
 Ce projet vous permet de déployer une infrastructure cloud **complète et automatisée** avec Terraform, Azure et Flask.
 
