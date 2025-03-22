@@ -177,6 +177,9 @@ resource "azurerm_virtual_machine" "vincentm_vm" {
 
   provisioner "remote-exec" {
     inline = [
+      "sudo apt-get update -y",
+      "sudo apt-get install -y dos2unix",
+      "dos2unix /tmp/setup-app.sh",
       "chmod +x /tmp/setup-app.sh",
       "sudo /tmp/setup-app.sh"
     ]
