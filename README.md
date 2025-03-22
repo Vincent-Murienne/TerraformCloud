@@ -189,6 +189,8 @@ curl -X DELETE http://<IP_PUBLIQUE>:5000/delete/<filename>
    - Puis de nouveau exécuter : terraform apply dans le dossier terraform
    - En parallèle, ouvrir un nouveau terminal, se connecter à la vm puis à la bdd et créer les tables 'test_table' et 'file_metadata'
    - Puis tester les routes via curl cmd ou Postman
+
+---
       
 ## 🎨 Conclusion
 Ce projet vous permet de déployer une infrastructure cloud **complète et automatisée** avec Terraform, Azure et Flask.
