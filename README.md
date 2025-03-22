@@ -20,15 +20,23 @@ Avant de commencer, installez les outils suivants :
 ## 📚 Structure du Projet
 ```
 .
-├── main.tf                  # Ressources Terraform
-├── provider.tf              # Configuration du provider Azure
-├── variables.tf             # Variables Terraform
-├── outputs.tf               # Sorties Terraform (IP publique, etc.)
-├── terraform.tfvars         # Valeurs sensibles des variables
-├── setup-app.sh             # Script de provisioning de la VM
-├── app.py                   # Code de l'application Flask
-├── README.md                # Ce fichier
-└── rapport.md               # Rapport du projet
+/TERRATORMCLOUD
+├── screen/
+├── src/
+│   ├── app.py                   # Code de l'application Flask
+│   ├── example.txt              # Fichier d'exemple pour le stockage Azure
+│   ├── setup-app.sh             # Script de provisioning de la VM
+├── terraform/
+│   └── .terraform/              # Répertoire caché pour les plugins Terraform
+│   ├── main.tf                  # Ressources Terraform
+│   ├── outputs.tf               # Sorties Terraform (IP publique, etc.)
+│   ├── provider.tf              # Configuration du provider Azure
+│   ├── terraform.tfvars         # Valeurs sensibles des variables
+│   ├── variables.tf             # Variables Terraform
+└── .gitignore                   # Fichier pour ignorer les fichiers dans Git
+├── id_rsa                       # Clé SSH privée
+├── id_rsa.pub                   # Clé SSH publique
+├── README.md                    # Documentation du projet
 ```
 
 ---
