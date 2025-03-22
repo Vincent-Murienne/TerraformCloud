@@ -112,9 +112,14 @@ Le script `setup-app.sh` configure la VM :
   ```
 - **Gestion du back-end Flask**
   ```sh
-  pkill -f "python3 app.py"
-  nohup python3 /opt/flaskapp/app.py > /var/log/flaskapp.log 2>&1 &
+  pkill -f "python3 app.py" # Arrêter le back
+  sudo systemctl daemon-reload # Reload Daemon
+  sudo systemctl restart flask-app.service # Restart le service
   ps aux | grep app.py  # Voir l'état du serveur
+  sudo systemctl status flask-app.service # Voir l'état du service
+  sudo journalctl -u flask-app.service # Voir les logs
+  nohup python3 /opt/flaskapp/app.py > /var/log/flaskapp.log 2>&1 &
+
   ```
 
 ---
