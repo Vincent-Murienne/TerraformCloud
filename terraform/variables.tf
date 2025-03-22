@@ -39,7 +39,7 @@ variable "admin_username" {
 variable "ssh_key_path" {
     description = "Chemin vers la clé SSH publique"
     type        = string
-    default     = "./id_rsa.pub"
+    default     = "../id_rsa.pub"
 }
 
 # Variables pour le réseau

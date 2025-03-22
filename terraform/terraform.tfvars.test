@@ -7,7 +7,7 @@ environment              = "Dev"
 vm_name                  = "test-name" 
 vm_size                  = "Standard_B1ls"
 admin_username           = "testadmin"
-ssh_key_path             = "./id_rsa.pub"
+ssh_key_path             = "../id_rsa.pub"
 
 # Réseau
 vnet_address_space       = ["10.0.0.0/16"]

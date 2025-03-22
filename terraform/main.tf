@@ -138,28 +138,39 @@ resource "azurerm_virtual_machine" "vincentm_vm" {
     }
   }
 
-  # Provisioner pour configurer la VM au lieu de l'extension
-  # Cette approche est plus flexible que l'extension VM
+  # Provisioner pour configurer la VM
   provisioner "file" {
-    source      = "./app.py"  # Fichier local contenant l'application Flask
+    source      = "../src/app.py"  # Fichier local contenant l'application Flask
     destination = "/tmp/app.py"
 
     connection {
       type        = "ssh"
       user        = var.admin_username
-      private_key = file("./id_rsa")  # Clé privée correspondant à la clé publique
+      private_key = file("../id_rsa")  # Clé privée correspondant à la clé publique
       host        = azurerm_public_ip.vincentm_ip.ip_address
     }
   }
 
   provisioner "file" {
-    source      = "./setup-app.sh"  # Script pour configurer l'application
+    source      = "../src/setup-app.sh"  # Script pour configurer l'application
     destination = "/tmp/setup-app.sh"
 
     connection {
       type        = "ssh"
       user        = var.admin_username
-      private_key = file("./id_rsa")
+      private_key = file("../id_rsa")
+      host        = azurerm_public_ip.vincentm_ip.ip_address
+    }
+  }
+
+  provisioner "file" {
+    source      = "./terraform.tfvars"  # Chemin relatif depuis le répertoire Terraform
+    destination = "/tmp/terraform.tfvars"
+    
+    connection {
+      type        = "ssh"
+      user        = var.admin_username
+      private_key = file("../id_rsa")
       host        = azurerm_public_ip.vincentm_ip.ip_address
     }
   }
@@ -173,7 +184,7 @@ resource "azurerm_virtual_machine" "vincentm_vm" {
     connection {
       type        = "ssh"
       user        = var.admin_username
-      private_key = file("./id_rsa")
+      private_key = file("../id_rsa")
       host        = azurerm_public_ip.vincentm_ip.ip_address
     }
   }
@@ -216,7 +227,7 @@ resource "azurerm_storage_blob" "vincentm_blob" {
   storage_account_name   = azurerm_storage_account.vincentm_storage.name
   storage_container_name = azurerm_storage_container.vincentm_container.name
   type                   = "Block"
-  source                 = "../example.txt"
+  source                 = "../src/example.txt"
 }
 
 # Créer un serveur PostgreSQL

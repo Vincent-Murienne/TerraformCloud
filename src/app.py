@@ -48,7 +48,8 @@ def parse_terraform_tfvars(file_path):
 
 # Charger les variables depuis terraform.tfvars
 try:
-    variables = parse_terraform_tfvars("./terraform.tfvars")
+    terraform_path = "/opt/flaskapp/terraform.tfvars"
+    variables = parse_terraform_tfvars(terraform_path)
     logger.info(f"Variables chargées depuis terraform.tfvars: {', '.join(variables.keys())}")
 except Exception as e:
     logger.error(f"Erreur lors du chargement des variables: {e}")
@@ -87,40 +88,6 @@ def get_db_connection():
         logger.error(f"Erreur de connexion à la base de données: {e}")
         raise
 
-# Fonction pour initialiser la base de données
-def initialize_database():
-    try:
-        conn = get_db_connection()
-        cur = conn.cursor()
-
-        # Créer la table file_metadata si elle n'existe pas
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS file_metadata (
-                id SERIAL PRIMARY KEY,
-                filename VARCHAR(255) NOT NULL,
-                filesize BIGINT NOT NULL,
-                filetype VARCHAR(50) NOT NULL,
-                upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );
-        """)
-
-        # Créer la table test_table si elle n'existe pas
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS test_table (
-                id SERIAL PRIMARY KEY,
-                name VARCHAR(50)
-            );
-        """)
-
-        conn.commit()
-        cur.close()
-        conn.close()
-        logger.info("Base de données initialisée avec succès.")
-    except Exception as e:
-        logger.error(f"Erreur lors de l'initialisation de la base de données: {e}")
-
-# Appeler la fonction d'initialisation au démarrage de l'application
-initialize_database()
 
 # Générer une URL pour download un fichier
 def generate_sas_url(blob_name):
@@ -319,21 +286,6 @@ def delete_record(id):
         logger.error(f"Erreur lors de la suppression de l'enregistrement: {e}")
         return jsonify({"error": str(e)}), 500
 
-# Fonction principale
-def main():
-    logger.info(f"Application démarrée")
-    logger.info(f"Utilisation du compte de stockage: {STORAGE_ACCOUNT_NAME}")
-    logger.info(f"Utilisation du conteneur: {CONTAINER_NAME}")
-    
-    # Test de la connexion à la base de données
-    try:
-        conn = get_db_connection()
-        logger.info("Connexion à la base de données réussie")
-        conn.close()
-    except Exception as e:
-        logger.error(f"Échec de la connexion à la base de données: {e}")
-    
-    app.run(host='0.0.0.0', port=5000, debug=True)
-
 if __name__ == "__main__":
-    main()
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    
